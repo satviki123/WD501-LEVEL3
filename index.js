@@ -13,22 +13,22 @@ const todoList = () => {
 
     const overdue = () => {
         const today = new Date();
-        today.setHours(0, 0, 0, 0); // Set hours to midnight for accurate comparison
+        today.setHours(0, 0, 0, 0); // Set hours to midnight
         return all.filter(todoItem => !todoItem.completed && new Date(todoItem.dueDate) < today);
     };
 
     const dueToday = () => {
         const today = new Date();
-        today.setHours(0, 0, 0, 0); // Set hours to midnight for accurate comparison
+        today.setHours(0, 0, 0, 0); // Set hours to midnight
         const endOfDay = new Date(today);
-        endOfDay.setHours(23, 59, 59, 999); // Set to the end of the day
+        endOfDay.setHours(23, 59, 59, 999); // Set to the end
 
         return all.filter(todoItem => new Date(todoItem.dueDate) >= today && new Date(todoItem.dueDate) <= endOfDay);
     };
 
     const dueLater = () => {
         const today = new Date();
-        today.setHours(23, 59, 59, 999); // Set hours to midnight for accurate comparison
+        today.setHours(23, 59, 59, 999); // Set hours to midnight
         return all.filter(todoItem => !todoItem.completed && new Date(todoItem.dueDate) > today);
     };
 
